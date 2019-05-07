@@ -18,6 +18,7 @@ public class NioClient {
     public void start() throws Exception {
 //        链接服务器端
         SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("localhost", 18000));
+        System.out.println("客户端启动成功................");
 
 //        向服务器发送数据
         Scanner scanner = new Scanner(System.in);
