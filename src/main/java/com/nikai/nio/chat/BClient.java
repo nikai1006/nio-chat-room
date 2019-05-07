@@ -10,9 +10,9 @@ package com.nikai.nio.chat;
  */
 public class BClient {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         NioClient nioClient = new NioClient();
-        nioClient.start(BClient.class.getName());
+        nioClient.start(BClient.class.getSimpleName());
     }
 
 }

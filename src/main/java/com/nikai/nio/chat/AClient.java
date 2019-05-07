@@ -12,7 +12,7 @@ public class AClient {
 
     public static void main(String[] args) throws Exception{
         NioClient nioClient = new NioClient();
-        nioClient.start(AClient.class.getName());
+        nioClient.start(AClient.class.getSimpleName());
     }
 
 }

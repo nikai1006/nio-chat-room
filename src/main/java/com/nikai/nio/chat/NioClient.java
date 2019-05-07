@@ -34,7 +34,7 @@ public class NioClient {
         while (scanner.hasNextLine()) {
             String nextLine = scanner.nextLine();
             if (nextLine != null && nextLine.length() > 0) {
-                socketChannel.write(Charset.forName("UTF-8").encode(nextLine));
+                socketChannel.write(Charset.forName("UTF-8").encode(name+":"+nextLine));
             }
         }
 
