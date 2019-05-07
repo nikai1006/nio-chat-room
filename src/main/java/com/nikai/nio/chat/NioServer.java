@@ -28,13 +28,14 @@ public class NioServer {
         ServerSocketChannel socketChannel = ServerSocketChannel.open();
 
 //        3、为channel通道绑定监听端口
-        socketChannel.bind(new InetSocketAddress(180000));
+        socketChannel.bind(new InetSocketAddress(18000));
 
 //        4、设置chanel为非阻塞模式
         socketChannel.configureBlocking(false);
 
 //        5、将channel注册到selector上，监听连接事件
         socketChannel.register(register, SelectionKey.OP_ACCEPT);
+        System.out.println("服务器启动成功");
 
 //        6、循环等待新接入的连接
         while (true) {
@@ -115,8 +116,9 @@ public class NioServer {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         NioServer nioServer = new NioServer();
+        nioServer.start();
     }
 
 
