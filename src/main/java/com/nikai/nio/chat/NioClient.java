@@ -17,10 +17,10 @@ import java.util.Scanner;
  */
 public class NioClient {
 
-    public void start() throws Exception {
+    public void start(String name) throws Exception {
 //        链接服务器端
         SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("localhost", 18000));
-        System.out.println("客户端启动成功................");
+        System.out.println(name + "客户端启动成功................");
 
 //        接收服务器的响应
 //        新开线程，专门负责接收服务器端的响应数据
@@ -43,7 +43,7 @@ public class NioClient {
 
     public static void main(String[] args) throws Exception {
         NioClient nioClient = new NioClient();
-        nioClient.start();
+        nioClient.start("第一个");
     }
 
 }
