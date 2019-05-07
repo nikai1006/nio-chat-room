@@ -101,12 +101,16 @@ public class NioServer {
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 //    循环读取客户端请求信息
         String request = "";
-        while (socketChannel.read(byteBuffer) > 0) {
-//            切换buffer为读模式
-            byteBuffer.flip();
+        try {
+            while (socketChannel.read(byteBuffer) > 0) {
+    //            切换buffer为读模式
+                byteBuffer.flip();
 
-//            读取buffer中的内容
-            request += Charset.forName("UTF-8").decode(byteBuffer);
+    //            读取buffer中的内容
+                request += Charset.forName("UTF-8").decode(byteBuffer);
+            }
+        } catch (IOException e) {
+            //do nothing
         }
         //    将channel再次注册到selector上，监听他的可读事件
         socketChannel.register(selector, SelectionKey.OP_READ);
