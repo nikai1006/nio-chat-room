@@ -48,13 +48,13 @@ public class NioServer {
                 continue;
             }
             Set<SelectionKey> selectionKeys = register.selectedKeys();
-            Iterator<SelectionKey> iterator = selectionKeys.iterator();
-            while (iterator.hasNext()) {
+            Iterator<SelectionKey> channelIterator = selectionKeys.iterator();
+            while (channelIterator.hasNext()) {
 //                实例
-                SelectionKey selectionKey = iterator.next();
+                SelectionKey selectionKey = channelIterator.next();
 
-                iterator.remove();
-//                根据相应的状态来调用相应的处理逻辑
+                channelIterator.remove();
+//        7、根据就绪状态，调用对方方法处理业务逻辑
 
                 //如果是接入事件
 //                do something
@@ -69,9 +69,6 @@ public class NioServer {
                 }
             }
         }
-//        7、根据就绪状态，调用对方方法处理业务逻辑
-
-//        8、
     }
 
     /**
