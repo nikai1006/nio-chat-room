@@ -36,6 +36,8 @@ public class NettyServer {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup, workGroup).channel(NioServerSocketChannel.class)
 //            .handler()
+//            .childOption()
+//            .childAttr()
             .childHandler(new ChannelInitializer<Channel>() {
                 @Override
                 protected void initChannel(Channel ch) {
